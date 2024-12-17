@@ -1,0 +1,650 @@
+@font-face {
+    font-family: Noice;
+    src: url(AntonSC-Regular.ttf);
+}
+@font-face {
+    font-family: Juicte;
+    src:url(Caveat-VariableFont_wght.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    font-family: "Noice";
+}
+:root {
+    --bgColor: rgb(245, 247, 248);
+    --secBgColor: rgb(251, 240, 240);
+    --infoBox:rgb(184, 176, 176);
+    --darkColor: rgb(124, 117, 117);
+    --textColor: rgb(59, 48, 48);
+    --textColor2:rgb(245, 247, 248);
+    --drkGrn: rgb(76, 75, 22);
+    --sage: rgb(75, 89, 69);
+    --tea: rgb(102, 120, 95);
+    --beans: rgb(145, 172, 143);
+    --leaves: rgb(178, 201, 173);
+    --toad: rgb(225, 235, 227);
+    --lily: rgb(37, 67, 54);
+}
+.gamerMode{
+    --bgColor: rgb(24, 18, 43);
+    --secBgColor: rgb(68, 60, 104);
+    --infoBox:rgb(57, 48, 83);
+    --darkColor: rgb(124, 117, 117);
+    --textColor: rgb(103, 110, 157);
+    --textColor2:rgb(255, 225, 255);
+    --drkGrn: rgb(44, 3, 44);
+    --sage: rgb(13, 9, 24) ;
+    --tea: rgb(59, 30, 84);
+    --beans: rgb(155, 126, 189);
+    --leaves: rgb(205, 193, 255);
+    --toad: rgb(229, 217, 242);
+    --lily: rgb(162, 148, 249);
+}
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+body{
+    background: var(--bgColor);
+    color: var(--textColor);
+    cursor: none
+}
+#preLoader{
+    background: var(--sage) url(/Img/Run.gif)
+    no-repeat center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+}
+.cursorDot {
+    width: 5px;
+    height: 5px;
+    background-color: var(--lily);
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+.cursorOutline {
+    width: 30px;
+    height: 30px;
+    border: 50rem solid var(--darkColor);
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    opacity: 5%;
+}
+
+.cursorDot,
+.cursorOutline{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1001; 
+    pointer-events: none; 
+}
+
+header {
+    position: fixed;
+    width: 90%;
+    top: 0;
+    left: 50%; 
+    transform: translateX(-50%); 
+    padding: 0.8rem 5%;
+    background: rgba(255, 255, 255, 0.8); 
+    border-radius: 0 0 20px 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.heading{
+    opacity: 0;
+    transition: all 1s;
+    transform: translateY(-50%);
+    color: var(--textColor2);
+    text-align: center;
+    font-size: 5rem;
+    margin: 5rem 0;
+}
+
+
+#taskBar {
+    font-size: 3.5rem;
+    color: var(--textColor);
+    display: none;
+}
+
+.brandingName {
+    font-size: 3rem;
+    color: var(--textColor);
+    font-weight: 800;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+
+.brandingName span {
+    background: linear-gradient(
+        270deg,
+        var(--tea) 10%,
+        var(--sage) 100%
+    );
+    background-clip: text;
+    color: transparent;
+}
+
+.navBar a{
+    font-size: 1.8rem;
+    color: var(--textColor);
+    margin-left: 4rem;
+    font-weight: 900;
+    transition: 0.3 ease-in-out;
+    border-bottom: 3px solid transparent;
+    cursor: none;
+}
+.navBar a:hover{
+    color: var(--tea);
+    border-bottom: 3px solid var(--leaves);
+    transform: scale(1.05);
+}
+section{
+    min-height: 100vh;
+    padding: 5rem 15%;
+}
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.homeContent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.homeContent h3{
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.homeContent p {
+    font-family: Juicte;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    border-right: 2px solid black;
+    width: auto;
+    max-width: 100%;
+}
+
+.socmedIcons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    padding: 1rem;
+    background: transparent;
+    border: 2px solid var(--tea);
+    border-radius: 50%;
+    color: var(--tea);
+    margin: 3rem 0.5rem;
+    transition: 0.3 ease-in-out;
+    cursor: none;
+}
+.socmedIcons a:hover {
+    color: var(--leaves);
+    background-color: var(--sage);
+    transform: scale(1.2)translateY(-5px);
+    box-shadow: 0 0 25px var(--leaves);
+}
+.btnGroup{
+    display: flex;
+    gap: 1.5rem;
+}
+.btn{
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--sage);
+    border: 2px solid var(--tea);
+    box-shadow: 0 0 25px var(--beans);
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    color: var(--textColor2);
+    border: 2px solid transparent;
+    transition: 0.3s ease-in-out;
+    cursor: none;
+}
+.btn:hover{
+    background-color: var(--beans);
+    color: var(--textColor);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--leaves),
+                0 0 50px var(--beans);    
+}
+
+.btnGroup a:nth-of-type(2){
+    background-color: var(--leaves);
+    color: var(--textColor);
+    border: 2px solid var(--leaves);
+    box-shadow: 0 0 25px transparent;
+}
+.btnGroup a:nth-of-type(2):hover{
+    box-shadow: 0 0 25px var(--tea);
+    background-color: var(--leaves);
+    color: var(--bgColor);
+}
+
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    background: var(--sage);
+}
+
+.aboutImg {
+    position: relative;
+    display: inline-block; 
+}
+
+.aboutImg img {
+    border-radius: 5%;
+    width: 20vw; 
+    transition: filter 0.4s ease-in-out; 
+}
+
+.aboutImg::before {
+    border-radius: 5%;
+    content: "HOVER ME";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--beans, rgba(0.64));
+    color: var(--textColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    pointer-events: none; 
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out; 
+    z-index: 1; 
+}
+
+.aboutImg img:hover {
+    filter: none;
+}
+
+.aboutImg:hover::before {
+    opacity: 0; 
+}
+.aboutCont{
+    opacity: 0;
+    transition: all 1s;
+    filter: blur(1px);
+    transform: translateX(-10%);
+}
+
+.aboutCont h2{
+    color: var(--textColor2);
+    font-size: 4rem;
+    text-align: left;
+}
+.aboutCont p{
+    font-family: Juicte;
+    font-size: 2rem;
+    color: var(--textColor2);
+}
+.aboutCont b{
+    font-family: Juicte;
+    font-size: 2rem;
+    color: var(--beans);
+}
+.aboutCont .btn{
+    margin: 3rem 0;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+   background-color: var(--leaves);
+}
+::-webkit-scrollbar-track{
+    background-color: var(--bgColor);
+ }
+
+.experience{
+    background-color: var(--sage);
+    color: var(--textColor);
+}
+
+.experience h2{
+    color: var(--textColor2);
+}
+
+.experienceCont{
+    opacity: 0;
+    transition: all 1s;
+    filter: blur(3px);
+    transform: translateY(10%);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: center;
+    gap: 5rem;
+}
+.experienceBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--tea);
+    color: var(--textColor2);
+    height: 600px;
+    border-radius: 3rem;
+    border: 5px solid transparent;
+    transition: 0.4 ease-in-out;
+    cursor: none;
+}
+.experienceBox:hover{
+    background: var(--leaves);
+    color: var(--textColor);
+    border: 5px solid var(--tea);
+    transform: scale(1.03);
+}
+.experienceInfo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+}
+.experienceInfo h4{
+    font-size: 2.5rem;
+    margin: 2rem;
+    font-weight: 800;
+}
+.experienceInfo p{
+    font-family: Juicte;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.projects{
+    background-color: var(--sage);
+}
+
+.projectBox {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    place-items: center;
+    gap: 2.5rem;
+    row-gap: 2.5rem;
+}
+
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--toad);
+    border: 2px solid var(--leaves);
+    gap: 1rem;
+    padding: 5rem 2rem;
+    overflow: hidden;
+    cursor: none;
+    box-shadow: 0 0 5px var(--darkColor);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.projectCard:hover {
+    box-shadow: 0 0 25px var(--tea), 0 0 50px var(--tea);
+    animation: shake 0.3s ease-in-out;
+}
+
+.projectCard img{
+    max-width: 250px;
+    border-radius: 3em;
+    object-fit: cover;
+}
+.projectCard h3{
+    font-size: 2rem;
+}
+.projectCard p{
+    font-family: Juicte;
+    font-size: 1.5rem;
+}
+
+.footer {
+    background-color: var(--leaves);
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.footer .socmedIcons {
+    text-align: left;
+    margin-left: 10rem; 
+}
+
+.footer ul {
+    text-align: right; 
+    font-size: 3.5rem;
+    margin-right: 3rem; 
+    
+}
+
+.footer ul li {
+    display: inline-block;
+    margin-left: 20px;
+    
+}
+
+.footer ul li a {
+    cursor: none;
+    color: var(--sage);
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+.footer ul li a:hover {
+    border-bottom: 3px solid var(--sage);
+}
+
+.footer .copyright {
+    background-color: var(--lily);
+    color: var(--bgColor);
+    text-align: center;
+    margin: 0; 
+    font-size: 16px;
+    padding: 10px; 
+    width: 100%; 
+}
+.btnTwo {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--beans);
+    border: 2px solid var(--bgColor);
+    box-shadow: 0 0 25px var(--beans);
+    color: var(--bgColor);
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    border: 2px solid transparent;
+    transition: 0.3s ease-in-out;
+    cursor: none;
+}
+.btnTwo:hover{
+    background-color: var(--beans);
+    color: var(--textColor);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--leaves),
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+#pdfSize{
+    border: solid;
+    width: 100%;
+    height: 100vh;
+}
+#gCont{
+    border: solid var(--textColor);
+    width: 100%;
+    height: 100vh;
+}
+
+
+@media (max-width:1385px){
+    #taskBar{
+        display: block;
+    }
+    .navBar{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3rem;
+        background: var(--beans);
+        border-bottom-left-radius: 2rem;
+        border-bottom: 5px solid var(--sage);
+        display: none;
+    }
+    .navBar a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--sage);
+    }
+    .navBar a:hover{
+        color: var(--bgColor);
+        border-bottom: 3px solid var(--bgColor);
+        transform: scale(1.05);
+    }
+    .navBar.active{
+        display: block;
+    }
+    .home{
+        flex-direction: column-reverse;
+        margin: 5rem 0;
+        gap: 5rem;
+    }
+    .homeContent{
+        align-items: center;
+        text-align: center;
+    }
+    .homeImage img{
+        width: 56vw;
+    }
+    .about{
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .about h2{
+        text-align: center;
+        margin: 2rem 0;
+    }
+    .about img{
+        width: 52vw;
+    }
+    .contact form{
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center; 
+    }
+
+    .footer .socmedIcons,
+    .footer ul {
+        margin: 10px 0; 
+    }
+}
+
+@media(prefers-reduce-motion){
+    .home, .aboutCont, .aboutImg, .experienceCont, .projectBox, .heading {
+        transition: none;
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+@media (min-width: 769px) {
+    .homeContent p.typing {
+        animation: typing 2s steps(30, end) 1, blink 0.5s step-end infinite;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@media (max-width: 768px) {
+    .homeContent p {
+        white-space: normal;
+        word-wrap: break-word;
+        animation: none !important; 
+        border-right: none;
+    }
+}
+
+
+
+
+
